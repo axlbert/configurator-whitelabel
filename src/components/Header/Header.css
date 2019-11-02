@@ -1,0 +1,9 @@
+.Header {
+    height: 92px;
+    border-bottom: 2px solid rgba(125, 123, 123, 0.27);
+}
+
+.Header-logo {
+    margin-top: 28px;
+    margin-left: 23px;
+}

@@ -1,0 +1,22 @@
+.Footer {
+    position: absolute;
+    height: 39px;
+    background-color: #3C525D;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Footer-content {
+    width: 665px;
+    display: flex;
+    flex-direction: row;
+    color: #FFFFFF;
+    font-family: 'Lato';
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    justify-content: space-between;
+    align-items: center;
+}
