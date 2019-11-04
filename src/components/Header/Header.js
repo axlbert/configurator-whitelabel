@@ -1,5 +1,4 @@
 import React from 'react';
-import { NativeLink } from 'react-router-dom';
 import group from '../../assets/images/group.png';
 import './Header.css';
 

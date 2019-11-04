@@ -6,16 +6,6 @@ import CategoryItem from '../../CategoryItem/CategoryItem';
 import group from '../../../assets/images/group.png';
 
 class CategorySelection extends Component {
-    constructor() {
-        super();
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(e) {
-        e.preventDefault();
-        this.props.history.push('/machine-configure');
-    }
-
     render () {
         const elements = [
             {image: group, name: 'Konfigurator'}, 
@@ -32,7 +22,7 @@ class CategorySelection extends Component {
                     <Col xs={8}>
                         <Row className="justify-content-md-center">
                             {elements.map((object, index) => {
-                                return <Col md={4} key={index}><CategoryItem content={object} onClick={this.handleClick}/></Col>
+                                return <Col md={4} key={index}><CategoryItem content={object} /></Col>
                             })}
                         </Row>
                     </Col>
@@ -40,7 +30,6 @@ class CategorySelection extends Component {
             </Container>
         );
     };
-
 }
 
 export default CategorySelection;

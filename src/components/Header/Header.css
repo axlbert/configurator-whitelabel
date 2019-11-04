@@ -1,9 +1,11 @@
 .Header {
-    height: 92px;
+    display: flex;
+    align-items: center;
+    height: 70px;
     border-bottom: 2px solid rgba(125, 123, 123, 0.27);
 }
 
 .Header-logo {
-    margin-top: 28px;
+    width: 100px;
     margin-left: 23px;
 }

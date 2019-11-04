@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import history  from './history';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import CategorySelection from './components/Page/CategorySelection/CategorySelection';
 import MachineConfigure from './components/Page/MachineConfigure/MachineConfigure';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (
-    <Router history={history}>
+    <Router >
       <div className="App">
         <Header></Header>
         <Switch>
