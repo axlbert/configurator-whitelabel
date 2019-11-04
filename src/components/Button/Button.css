@@ -1,0 +1,11 @@
+.Button {
+    background-color: #3C525D;
+    border-radius: 2px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    width: 175px;
+    height: 40px;
+    border: none;
+    margin-right: 10px;
+    color: white;
+    font-family: 'Lato-Bold';
+}

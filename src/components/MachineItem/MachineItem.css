@@ -1,0 +1,12 @@
+.Item-name {
+    padding: 8px 0;
+    color: #000000;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.active {
+    border: 2px solid #3C525D;
+}
