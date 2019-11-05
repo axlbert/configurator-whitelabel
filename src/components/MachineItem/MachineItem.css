@@ -1,8 +1,22 @@
+.Item-container {
+    width: 150px;
+}
+
+.Item-block {
+    border: 2px solid #DCDBDB;
+    width: 150px;
+    height: 90px;
+}
+
+.Item-image {
+    width: 100px;
+}
+
 .Item-name {
     padding: 8px 0;
     color: #000000;
     font-family: Lato;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 22px;
 }

@@ -11,11 +11,11 @@ class  CategoryItem extends Component {
 
     render () {
         return (
-                <div className="Item-container d-flex flex-column align-items-center" onClick={() => {
+                <div className="Item-container d-flex flex-column align-items-center mb-2" onClick={() => {
                     this.props.history.push("/machine-configure");
                   }}>
                     <div className="Item-block d-flex align-items-center justify-content-center">
-                        <img src={this.props.content.image} className="Item-icon" alt="logo" />
+                        <img src={this.props.content.image} className="Item-image" />
                     </div>
                     <p className="Item-name">{this.props.content.name}</p>
                 </div>

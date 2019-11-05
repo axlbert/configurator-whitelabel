@@ -22,7 +22,7 @@ class CategorySelection extends Component {
                     <Col xs={8}>
                         <Row className="justify-content-md-center">
                             {elements.map((object, index) => {
-                                return <Col md={4} key={index}><CategoryItem content={object} /></Col>
+                                return <Col className="d-flex justify-content-center" md={4} key={index}><CategoryItem content={object} /></Col>
                             })}
                         </Row>
                     </Col>

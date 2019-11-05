@@ -33,6 +33,14 @@ p {
   font-family: 'Lato-Bold';
 }
 
+.primary-color {
+  color: #3C525D;
+}
+
 .blue-color {
   color: #004A86;
+}
+
+.gray-color {
+  color: #BDBDBD;
 }

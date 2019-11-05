@@ -30,7 +30,7 @@ function MachineConfigure() {
                 <Sidebar />
                 <Container className="Machine-container justify-content-center">
                     <Row className="justify-content-md-center title">
-                        Welchen Maschinentyp wollen Sie konfigurieren?
+                        Welche Art von Anhänger interessiert Sie?
                     </Row>
                     <Row className="justify-content-md-center">
                         <Col xs={8}>
