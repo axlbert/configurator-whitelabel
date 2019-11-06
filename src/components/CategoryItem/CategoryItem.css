@@ -8,11 +8,15 @@
     height: 90px;
 }
 
-.Item-image {
-    width: 100px;
+.Cat-item-image {
+    width: 160px;
 }
 
-.Item-name {
+.Cat-item-icon {
+    height: 30px;
+}
+
+.Cat-Item-name {
     padding: 8px 0;
     color: #6D6D6D;
     font-family: Lato;
