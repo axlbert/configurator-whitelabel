@@ -1,1 +1,2 @@
 export const ADD_MACHINE = "ADD_MACHINE";
+export const ADD_SUSPENSION = "ADD_SUSPENSION";

@@ -1,7 +1,8 @@
 const strings = {
     machineConfigure: {
         title: 'Welche Art von Anhänger interessiert Sie?',
-        choose: 'Bitte treffen Sie eine Auswahl.'
+        choose: 'Bitte treffen Sie eine Auswahl.',
+        suspension: 'Welche Art von Fahrwerk benötigen Sie?'
     },
     categories: {
         configurator: 'Konfigurator',
@@ -20,6 +21,12 @@ const strings = {
         pusher: 'Abschiebwagen',
         platformtrailer: 'Plattformanhänger',
         frontend: 'Vorderwagen'
+    },
+    suspensions: {
+        singleAxle: 'Einachser',
+        twoAxles: 'Zweiachser',
+        threeAxles: 'Dreiachser',
+        tandem: 'Tandem'
     }
 }
 

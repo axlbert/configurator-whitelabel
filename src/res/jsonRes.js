@@ -19,6 +19,12 @@ const jsonRes = {
         {name: strings.trailers.pusher, image: images.trailers.pusher},
         {name: strings.trailers.platformtrailer, image: images.trailers.platformtrailer},
         {name: strings.trailers.frontend, image: images.trailers.frontend},
+    ],
+    suspensions: [
+        {name: strings.suspensions.singleAxle, image: images.suspensions.singleAxle},
+        {name: strings.suspensions.twoAxles, image: images.suspensions.twoAxles},
+        {name: strings.suspensions.threeAxles, image: images.suspensions.threeAxles},
+        {name: strings.suspensions.tandem, image: images.suspensions.tandem}
     ]
 }
 

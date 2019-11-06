@@ -1,29 +1,41 @@
 import React, { Component } from 'react';
-import './Sidebar.css';
 import { connect } from 'react-redux';
+import './Sidebar.css';
 
-function SelectedItem({item}) {
+function SelectedItem({items}) {
     return (
         <div>
-            {item.map((object, index) => {
+            {items.map((item, index) => {
                 return <div className="Configured-item" key={index}>
                             <i className="material-icons gray-color mr-2">check</i>
-                            <p>{object.name}</p>
+                            <p>{item.name}</p>
                         </div>
             })}
         </div>
     );
 }
 
+function getSelectedItems(state) {
+    const items = [];
+    if (Object.entries(state.trailer).length !== 0) {
+        items.push({name: state.trailer.name});
+        if (Object.entries(state.suspension).length !==0) {
+            items.push({name: state.suspension.name});
+        }
+    }
+    return items;
+}
+
 class Sidebar extends Component {
     render ()  {
+        const selectedItems = getSelectedItems(this.props);
         return (
             <div className="Sidebar-container">
                 <div className="Sidebar-header">
-                    <p className="blue-color lato-bold">Auswahl</p>
+                    <p className="primary-color lato-bold">Auswahl</p>
                     <i className="material-icons">keyboard_arrow_left</i>
                 </div>
-                <SelectedItem item={this.props.machines}/>
+                <SelectedItem items={selectedItems}/>
             </div>
         );
     }

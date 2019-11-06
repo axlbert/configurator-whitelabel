@@ -16,6 +16,12 @@ const images = {
         pusher: require('../assets/images/Abschiebwagen.png'),
         platformtrailer: require('../assets/images/Plattformwagen.png'),
         frontend: require('../assets/images/Vorderwagen.png'),
+    },
+    suspensions: {
+        singleAxle:  require('../assets/images/Einachser.png'),
+        twoAxles: require('../assets/images/Zweiachser.png'),
+        threeAxles:  require('../assets/images/Dreiachser.png'),
+        tandem: require('../assets/images/Tandem.png'),
     }
 }
 

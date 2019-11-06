@@ -1,14 +1,18 @@
-import { ADD_MACHINE } from '../constants/action-types';
+import { ADD_MACHINE, ADD_SUSPENSION } from '../constants/action-types';
 
 const initialState = {
-    machines: []
+    trailer: {},
+    suspension: {}
 }
 
 function rootReducer(state = initialState, action) {
-    if (action.type === ADD_MACHINE) {
-        return Object.assign({}, state, {
-            machines: state.machines.concat(action.payload)
-        });
+    switch (action.type) {
+        case ADD_MACHINE: {
+            return {...state, trailer: action.payload}
+        }
+        case ADD_SUSPENSION: {
+            return {...state, suspension: action.payload}
+        }
     }
     return state;
 };
