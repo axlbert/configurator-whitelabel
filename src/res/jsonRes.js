@@ -11,6 +11,14 @@ const jsonRes = {
         {name: strings.categories.offerManagement, image: images.categories.offerManagement},
         {name: strings.categories.userManagement, image: images.categories.userManagement},
         {name: strings.categories.priceLists, image: images.categories.priceLists}
+    ],
+    trailers: [
+        {name: strings.trailers.dreiseitenkipper, image: images.trailers.dreiseitenkipper},
+        {name: strings.trailers.dumptruck, image: images.trailers.dumptruck},
+        {name: strings.trailers.hooklift, image: images.trailers.hooklift},
+        {name: strings.trailers.pusher, image: images.trailers.pusher},
+        {name: strings.trailers.platformtrailer, image: images.trailers.platformtrailer},
+        {name: strings.trailers.frontend, image: images.trailers.frontend},
     ]
 }
 

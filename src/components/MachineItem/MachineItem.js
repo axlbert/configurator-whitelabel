@@ -16,9 +16,10 @@ class MachineItem extends Component {
                 this.setState({selected: !this.state.selected});
                 e.preventDefault();
                 this.props.dispatch(addMachine(this.props.content));
+                this.props.onClick(this.props.content);
             }}>
                 <div className={`Item-block d-flex align-items-center justify-content-center ${this.state.selected ? "active" : ""}`}>
-                    <img src={this.props.content.image} className="Item-image" />
+                    <img src={this.props.content.image} alt="empty" className="Item-image" />
                 </div>
                 <p className="Item-name">{this.props.content.name}</p>
             </div>

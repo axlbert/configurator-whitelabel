@@ -1,4 +1,8 @@
 const strings = {
+    machineConfigure: {
+        title: 'Welche Art von Anhänger interessiert Sie?',
+        choose: 'Bitte treffen Sie eine Auswahl.'
+    },
     categories: {
         configurator: 'Konfigurator',
         settings: 'Einstellungen',
@@ -8,6 +12,14 @@ const strings = {
         offerManagement: 'Angebotsverwaltung',
         userManagement: 'Nutzerverwaltung',
         priceLists: 'Preislisten'
+    },
+    trailers: {
+        dreiseitenkipper: 'Dreiseitenkipper',
+        dumptruck: 'Muldenkipper',
+        hooklift: 'Hakenlift',
+        pusher: 'Abschiebwagen',
+        platformtrailer: 'Plattformanhänger',
+        frontend: 'Vorderwagen'
     }
 }
 

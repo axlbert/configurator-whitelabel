@@ -5,7 +5,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import CategorySelection from './components/Page/CategorySelection/CategorySelection';
 import MachineConfigure from './components/Page/MachineConfigure/MachineConfigure';
-import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (

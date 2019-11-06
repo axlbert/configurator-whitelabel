@@ -6,6 +6,7 @@
     border: 2px solid #DCDBDB;
     width: 150px;
     height: 90px;
+    cursor: pointer;
 }
 
 .Cat-item-image {

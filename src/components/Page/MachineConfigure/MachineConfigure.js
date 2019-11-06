@@ -1,54 +1,61 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import './MachineConfigure.css';
 import Sidebar from '../../Sidebar/Sidebar';
 import MachineItem from '../../MachineItem/MachineItem';
 import Button from '../../../components/Button/Button';
 import ConfigureFlow from '../../ConfigureFlow/ConfigureFlow';
+import strings from '../../../res/strings';
+import jsonRes from '../../../res/jsonRes';
 
-import Dreiseitenkipper from '../../../assets/images/Dreiseitenkipper.png';
-import Muldenkipper from '../../../assets/images/Muldenkipper.png';
-import Hakenlift from '../../../assets/images/Hakenlift.png';
-import Abschiebwagen from '../../../assets/images/Abschiebwagen.png';
-import Plattformanhänger from '../../../assets/images/Plattformanhänger.png';
-import Vorderwagen from '../../../assets/images/Vorderwagen.png';
+class MachineConfigure extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            trailers: jsonRes.trailers
+        };
+        this.onMachineItemClick = this.onMachineItemClick.bind(this);
+    }
 
+    onMachineItemClick(machine) {
+        // this.setState({trailers:[]})
+    }
 
-function MachineConfigure() {
-    let elements = [
-        {name: 'Dreiseitenkipper', image: Dreiseitenkipper, selected: false},
-        {name: 'Muldenkipper', image: Muldenkipper, selected: false},
-        {name: 'Hakenlift', image: Hakenlift, selected: false},
-        {name: 'Abschiebwagen', image: Abschiebwagen, selected: false},
-        {name: 'Plattformanhänger', image: Plattformanhänger, selected: false},
-        {name: 'Vorderwagen', image: Vorderwagen, selected: false},
-    ];
-
-    return (
-        <div>
-            <div className="d-flex">
-                <Sidebar />
-                <Container className="Machine-container justify-content-center">
-                    <Row className="justify-content-md-center title">
-                        Welche Art von Anhänger interessiert Sie?
-                    </Row>
-                    <Row className="justify-content-md-center">
-                        <Col xs={8}>
-                            <Row className="justify-content-md-center">
-                                {elements.map((object, index) => {
-                                    return <Col md={4} key={index}><MachineItem content={object} /></Col>
-                                })}
-                            </Row>
-                            <Row>
-                                <Col className="d-flex justify-content-md-end"><Button /></Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
+    render () {
+        const { trailers } = this.state;
+        return (
+            <div>
+                <div className="d-flex">
+                    <Sidebar />
+                    <Container className="Main-container justify-content-center">
+                        <Row className="justify-content-md-center title">
+                            {strings.machineConfigure.title}
+                        </Row>
+                        <Row className="justify-content-md-center">
+                            <Col xs={7}>
+                                <Row className="justify-content-md-center mb-3 ml-3 mr-3 pb-2 border-bottom border-gray primary-color">
+                                    {strings.machineConfigure.choose}
+                                </Row>
+                                <Row className="justify-content-md-center Machine-container">
+                                    {trailers.map((object, index) => {
+                                        return (
+                                            <Col className="d-flex justify-content-center" md={4} key={index}>
+                                                <MachineItem content={object} onClick={this.onMachineItemClick} />
+                                            </Col>
+                                        )
+                                    })}
+                                </Row>
+                                {/* <Row>
+                                    <Col className="d-flex justify-content-md-end"><Button /></Col>
+                                </Row> */}
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+                <ConfigureFlow />
             </div>
-            <ConfigureFlow />
-        </div>
-    );
+        );
+    }
 }
 
 export default MachineConfigure;

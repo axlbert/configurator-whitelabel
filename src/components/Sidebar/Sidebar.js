@@ -16,10 +16,6 @@ function SelectedItem({item}) {
 }
 
 class Sidebar extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render ()  {
         return (
             <div className="Sidebar-container">

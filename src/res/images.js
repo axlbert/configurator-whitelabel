@@ -8,6 +8,14 @@ const images = {
         offerManagement: require('../assets/images/clipboard_list_solid.svg'),
         userManagement: require('../assets/images/cogs_solid.svg'),
         priceLists: require('../assets/images/euro_sign_solid.svg')
+    },
+    trailers: {
+        dreiseitenkipper: require('../assets/images/Dreiseitenkipper.png'),
+        dumptruck: require('../assets/images/Muldenkipper.png'),
+        hooklift: require('../assets/images/Hakenlift.png'),
+        pusher: require('../assets/images/Abschiebwagen.png'),
+        platformtrailer: require('../assets/images/Plattformwagen.png'),
+        frontend: require('../assets/images/Vorderwagen.png'),
     }
 }
 
