@@ -1,12 +1,7 @@
 import { 
-    ADD_MACHINE,
-    ADD_SUSPENSION
+    ADD_ITEM_BASKET
 } from '../constants/action-types';
 
-export function addMachine(payload) {
-    return {type: ADD_MACHINE, payload};
+export function addItemToBasket(payload) {
+    return {type: ADD_ITEM_BASKET, payload};
 };
-
-export function addSuspension(payload) {
-    return {type: ADD_SUSPENSION, payload}
-}

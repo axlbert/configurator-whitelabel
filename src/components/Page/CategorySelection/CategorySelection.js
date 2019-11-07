@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './CategorySelection.css';
 import CategoryItem from '../../CategoryItem/CategoryItem';
-import jsonRes from '../../../res/jsonRes';
+import { jsonRes } from '../../../res/jsonRes';
 
 class CategorySelection extends Component {
     render () {

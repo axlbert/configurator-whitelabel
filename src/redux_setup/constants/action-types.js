@@ -1,2 +1,1 @@
-export const ADD_MACHINE = "ADD_MACHINE";
-export const ADD_SUSPENSION = "ADD_SUSPENSION";
+export const ADD_ITEM_BASKET = "ADD_ITEM_BASKET";

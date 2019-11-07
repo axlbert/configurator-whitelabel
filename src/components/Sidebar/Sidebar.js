@@ -28,14 +28,15 @@ function getSelectedItems(state) {
 
 class Sidebar extends Component {
     render ()  {
-        const selectedItems = getSelectedItems(this.props);
+        console.log('===========', this.props)
+        const { items } = this.props;
         return (
             <div className="Sidebar-container">
                 <div className="Sidebar-header">
                     <p className="primary-color lato-bold">Auswahl</p>
                     <i className="material-icons">keyboard_arrow_left</i>
                 </div>
-                <SelectedItem items={selectedItems}/>
+                <SelectedItem items={items}/>
             </div>
         );
     }
