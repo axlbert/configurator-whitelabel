@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './MachineConfigure.css';
 import Sidebar from '../../Sidebar/Sidebar';
 import ConfigureFlow from '../../ConfigureFlow/ConfigureFlow';
+import Button from '../../Button/Button';
 import content from '../../../res/jsonRes';
 import { addItemToBasket } from '../../../redux_setup/actions';
 
@@ -18,20 +19,34 @@ class MachineConfigure extends Component {
             data: content.step1.data,
             stepNumber: content.step1.stepNumber,
             design: content.step1.design,
+            multiSelection: false,
+            itemSelected: false,
         }
         this.onMachineItemClick = this.onMachineItemClick.bind(this);
     }
 
     onMachineItemClick(item) {
-        this.props.dispatch(addItemToBasket(item));
-        const { stepNumber } = this.state;
-        this.setState({
-            title: content['step' + (stepNumber+1)].title,
-            subtitle: content['step' + (stepNumber+1)].subtitle,
-            data: content['step' + (stepNumber+1)].data,
-            stepNumber: content['step' + (stepNumber+1)].stepNumber,
-            design: content['step' + (stepNumber+1)].design,
-        })
+        const { stepNumber, multiSelection } = this.state;
+        this.setState({itemSelected: multiSelection ? true : false});
+        const nextStep = item.nextStep ? item.nextStep : stepNumber + 1;
+        if (!item.nextStep) {
+            this.props.dispatch(addItemToBasket(item));
+        }
+        if (!multiSelection) {
+            this.setState({
+                title: content['step' + nextStep].title,
+                subtitle: content['step' + nextStep].subtitle,
+                data: content['step' + nextStep].data,
+                stepNumber: content['step' + nextStep].stepNumber,
+                design: content['step' + nextStep].design,
+                multiSelection: content['step' + nextStep].multiSelection,
+            })
+        }
+    }
+
+    renderFurtherButton() {
+        const { itemSelected } = this.state;
+        return this.state.multiSelection && itemSelected ? <Button /> : null
     }
 
     render () {
@@ -39,7 +54,7 @@ class MachineConfigure extends Component {
         const NewComponent = design;
         return (
             <div>
-                <div className="d-flex">
+                <div className="d-flex Container">
                     <Sidebar />
                     <Container className="Main-container justify-content-center">
                         <Row className="justify-content-md-center title">
@@ -51,6 +66,9 @@ class MachineConfigure extends Component {
                                     {subtitle}
                                 </Row>
                                 <NewComponent items={data} onClick={this.onMachineItemClick}/>
+                                <Row className="justify-content-end">
+                                    {this.renderFurtherButton()}
+                                </Row>
                             </Col>
                         </Row>
                     </Container>

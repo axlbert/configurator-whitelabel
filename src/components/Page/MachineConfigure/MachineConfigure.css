@@ -1,3 +1,9 @@
+.Container {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 169px);
+}
+
 .Main-container {
     flex: 1;
 }

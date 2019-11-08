@@ -1,9 +1,10 @@
 import React from 'react';
 import './Button.css';
 
-function Button(params) {
+function Button(props) {
+    const { onClick } = props;
     return (
-        <button className="Button mt-5 mb-5">WEITER</button>
+        <button className="Button mt-5 mb-5" onClick={() => {onClick({nextStep: 6})}}>WEITER</button>
     );
 }
 

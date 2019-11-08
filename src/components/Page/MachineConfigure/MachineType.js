@@ -1,6 +1,7 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import MachineItem from '../../MachineItem/MachineItem';
+import Button from '../../Button/Button';
 
 export const MachineType = (props) => {
     const {items, onClick} = props;
@@ -32,5 +33,19 @@ export const OptionType = (props) => {
                 )
             })}
         </Row>
+    );
+}
+
+export const DescribeView = (props) => {
+    const {items, onClick} = props;
+    return (
+        <Container>
+            <Row className="justify-content-center">
+                {items}
+            </Row>
+            <Row className="justify-content-end pt-5 mt-5">
+                <Button onClick={onClick}/>
+            </Row>
+        </Container>
     );
 }
