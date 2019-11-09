@@ -1,8 +1,13 @@
-.Item-container {
+.Category-container {
     width: 150px;
 }
 
-.Item-block {
+.Category-container:hover > div {
+    border: 2px solid #FFB232;
+}
+
+
+.Category-block {
     border: 2px solid #DCDBDB;
     width: 150px;
     height: 90px;

@@ -15,20 +15,8 @@ function SelectedItem({items}) {
     );
 }
 
-function getSelectedItems(state) {
-    const items = [];
-    if (Object.entries(state.trailer).length !== 0) {
-        items.push({name: state.trailer.name});
-        if (Object.entries(state.suspension).length !==0) {
-            items.push({name: state.suspension.name});
-        }
-    }
-    return items;
-}
-
 class Sidebar extends Component {
     render ()  {
-        console.log('===========', this.props)
         const { items } = this.props;
         return (
             <div className="Sidebar-container">

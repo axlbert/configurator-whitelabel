@@ -8,13 +8,13 @@ import './ContentView.css';
 export const MachineType = (props) => {
     const {items, onClick} = props;
     return (
-        <Row className="justify-content-md-center mt-4">
+        <Row className="justify-content-md-center mt-3">
             <Col xs={6}>
                 <Row className="justify-content-md-center Machine-container">
                     {items.map((item, index) => {
                         return (
                             <Col className="d-flex justify-content-center" md={4} key={index}>
-                                <MachineItem content={item} step={1} onClick={onClick} />
+                                <MachineItem content={item} onClick={onClick} />
                             </Col>
                         )
                     })}
@@ -123,24 +123,25 @@ export class DealerView extends Component {
         super(props);
         this.state = {
             viewport: {
-              width: 400,
-              height: 217,
-              latitude: 37.7577,
-              longitude: -122.4376,
-              zoom: 8
+                width: 400,
+                height: 217,
+                latitude: 37.7577,
+                longitude: -122.4376,
+                zoom: 8
             },
-            items: this.props.items
+            items: this.props.items,
+            onClick: this.props.onClick
         };
     }
     
     render () {
-        const {items} = this.state;
+        const {items, onClick, viewport} = this.state;
         return (
             <Container>
                 <Row className="justify-content-md-center map pt-3 pb-3">
                     <Col className="d-flex justify-content-center">
                         <ReactMapGL mapboxApiAccessToken={'pk.eyJ1IjoiYmtoZGV2NzgiLCJhIjoiY2sycXpncDYwMGtsdTNpcWV0cGtlODJyYyJ9.Bqj78bMgOjwU9Zqnc3qr2Q'}
-                            {...this.state.viewport}
+                            {...viewport}
                                 onViewportChange={(viewport) => this.setState({viewport})}
                             />
                     </Col>
@@ -149,7 +150,7 @@ export class DealerView extends Component {
                 <Row className="dealars">
                     {items.map((item, index) => {
                         return (
-                            <Col key={index} >
+                            <Col key={index} onClick={onClick}>
                                 <div className="dealer-box p-2">
                                     <p className="Lato-bold">{item.dealer}</p>
                                     <p>{item.phone}</p>
@@ -163,4 +164,27 @@ export class DealerView extends Component {
             </Container>
         );
     }
+}
+
+export const FinalView = (props) => {
+    console.log('=============', props)
+    const {items, onClick} = props;
+    return (
+        <Row className="justify-content-md-center mt-5">
+            <Col xs={7}>
+                <Row>
+                    {items.map((item, index) => {
+                        return (
+                            <Col key={index} onClick={() => {onClick(item)}} className="d-flex justify-content-center">
+                                <div className="Item-box d-flex flex-column align-items-center justify-content-center">
+                                    <img src={item.image} className="final-image mb-3" alt=""></img>
+                                    <p className="Lato-bold primary-color">{item.name}</p>
+                                </div>
+                            </Col>
+                        )
+                    })}
+                </Row>
+            </Col>
+        </Row>
+    );
 }

@@ -22,6 +22,10 @@ const images = {
         twoAxles: require('../assets/images/Zweiachser.png'),
         threeAxles:  require('../assets/images/Dreiachser.png'),
         tandem: require('../assets/images/Tandem.png'),
+    },
+    icons: {      
+        settlementOffer: require('../assets/images/Vergleichsangebot.svg'),
+        backToHome: require('../assets/images/ZurückZurStartseite.svg')
     }
 }
 

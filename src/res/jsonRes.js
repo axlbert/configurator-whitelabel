@@ -6,7 +6,8 @@ import {
     DescribeView, 
     OfferView,  
     UserForm,
-    DealerView
+    DealerView,
+    FinalView
 } from '../components/Page/MachineConfigure/ContentView'
 
 export const jsonRes = {
@@ -141,7 +142,6 @@ const content = {
             {name: '1.500 mm'},
             {name: '1.800 mm'},
         ],
-        design: OptionType,
         multiSelection: false
     },
     step7: {
@@ -176,10 +176,10 @@ const content = {
         subtitle: 'Mehrfachauswahl möglich.',
         design: MachineType,
         data: [
-            {name: 'Abnehmbare Kippbrückenverlängerung', image:''},
-            {name: 'Fernentriegelung', image:''},
-            {name: 'Rollplane', image:''},
-            {name: 'Keine', image:''},
+            {name: 'Abnehmbare Kippbrückenverlängerung', image:'', selected: false},
+            {name: 'Fernentriegelung', image:'', selected: false},
+            {name: 'Rollplane', image:'', selected: false},
+            {name: 'Keine', image:'', selected: false},
         ],
         multiSelection: true
     },
@@ -294,6 +294,18 @@ const content = {
                 address: 'Kümperstiege 2 48341 Altenberge'
 
             }
+        ],
+        multiSelection: false,
+        noBasket: true
+    },
+    step16: {
+        stepNumber: 16,
+        title: 'Vielen Dank für Ihre Anfrage',
+        subtitle: 'Sie erhalten in Kürze eine Bestätigung per Mail.',
+        design: FinalView,
+        data: [
+            {name: 'Zurück zur Startseite', image: images.icons.settlementOffer, redirect: '/home'},
+            {name: 'Vergleichsangebot', image: images.icons.backToHome, redirect: '/machine-configure'}
         ],
         multiSelection: false,
         noBasket: true

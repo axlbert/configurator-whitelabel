@@ -11,9 +11,9 @@ class  CategoryItem extends Component {
 
     render () {
         return (
-                <div className="Item-container d-flex flex-column align-items-center mb-3" onClick={() => {
+                <div className="Category-container d-flex flex-column align-items-center mb-3" onClick={() => {
                     this.props.history.push("/machine-configure");}}>
-                    <div className="Item-block d-flex align-items-center justify-content-center">
+                    <div className="Category-block d-flex align-items-center justify-content-center">
                         <img src={this.props.content.image} alt="empty" className={`${this.props.content.name === 'Konfigurator'? 'Cat-item-image' : 'Cat-item-icon'}`} />
                     </div>
                     <p className="Cat-Item-name">{this.props.content.name}</p>

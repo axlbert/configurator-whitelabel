@@ -1,4 +1,4 @@
-import { ADD_ITEM_BASKET } from '../constants/action-types';
+import { ADD_ITEM_BASKET, CLEAR_BASKET } from '../constants/action-types';
 
 const initialState = {
     items: []
@@ -9,6 +9,11 @@ function rootReducer(state = initialState, action) {
         case ADD_ITEM_BASKET: {
             return {...state, items: state.items.concat(action.payload)}
         }
+        case CLEAR_BASKET: {
+            return {...state, items: []}
+        }
+        default:
+            break;
     }
     return state;
 };

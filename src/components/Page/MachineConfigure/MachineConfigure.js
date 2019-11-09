@@ -7,7 +7,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 import ConfigureFlow from '../../ConfigureFlow/ConfigureFlow';
 import Button from '../../Button/Button';
 import content from '../../../res/jsonRes';
-import { addItemToBasket } from '../../../redux_setup/actions';
+import { addItemToBasket, clearBasket } from '../../../redux_setup/actions';
 
 
 class MachineConfigure extends Component {
@@ -23,15 +23,33 @@ class MachineConfigure extends Component {
             itemSelected: false,
             noBasket: false,
         }
-        this.onMachineItemClick = this.onMachineItemClick.bind(this);
+        this.onItemClick = this.onItemClick.bind(this);
     }
 
-    onMachineItemClick(item) {
-        console.log('===========', item)
-        const { stepNumber, multiSelection } = this.state;
+    componentWillUnmount() {
+        this.props.dispatch(clearBasket());
+    }
+
+    onItemClick(item) {
+        let stepNumber;
+        if (item.redirect) {
+            if (item.redirect === '/home') {
+                this.props.history.push(item.redirect);
+                return;
+            } else {
+                stepNumber = 0;
+            }
+            this.props.dispatch(clearBasket());
+        } else {
+            stepNumber = this.state.stepNumber;
+        }
+        
+        const { multiSelection, noBasket } = this.state;
+        
         this.setState({itemSelected: multiSelection ? true : false});
         const nextStep = item.nextStep ? item.nextStep : stepNumber + 1;
-        if (!item.nextStep) {
+
+        if (!item.nextStep && !noBasket) {
             this.props.dispatch(addItemToBasket(item));
         }
         if (!multiSelection || item.nextStep) {
@@ -49,7 +67,7 @@ class MachineConfigure extends Component {
 
     renderFurtherButton() {
         const { itemSelected, stepNumber } = this.state;
-        return this.state.multiSelection && itemSelected ? <Button step={stepNumber} onClick={this.onMachineItemClick}/> : null
+        return this.state.multiSelection && itemSelected ? <Button step={stepNumber} onClick={this.onItemClick}/> : null
     }
 
     render () {
@@ -66,7 +84,7 @@ class MachineConfigure extends Component {
                         <Row className="justify-content-md-center primary-color">
                             <Col xs={7} className="d-flex justify-content-center border-bottom pb-2">{subtitle}</Col>
                         </Row>
-                        <NewComponent items={data} step={stepNumber} onClick={this.onMachineItemClick}/>
+                        <NewComponent items={data} step={stepNumber} onClick={this.onItemClick}/>
                         <Row className="justify-content-center">
                             <Col xs={7} className="d-flex justify-content-end">
                                 {this.renderFurtherButton()}    
@@ -81,7 +99,7 @@ class MachineConfigure extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {action: bindActionCreators(addItemToBasket, dispatch)}
+    return {action: bindActionCreators({addItemToBasket, clearBasket}, dispatch)}
 }
 
 export default connect(mapDispatchToProps)(MachineConfigure);

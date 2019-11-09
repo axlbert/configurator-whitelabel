@@ -1,1 +1,2 @@
 export const ADD_ITEM_BASKET = "ADD_ITEM_BASKET";
+export const CLEAR_BASKET = 'CLEAR_BASKET';
