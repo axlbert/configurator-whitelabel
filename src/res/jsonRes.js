@@ -1,6 +1,13 @@
 import images from './images';
 import strings from './strings';
-import { OptionType, MachineType, DescribeView } from '../components/Page/MachineConfigure/MachineType'
+import { 
+    OptionType, 
+    MachineType, 
+    DescribeView, 
+    OfferView,  
+    UserForm,
+    DealerView
+} from '../components/Page/MachineConfigure/ContentView'
 
 export const jsonRes = {
     categories: [
@@ -176,6 +183,121 @@ const content = {
         ],
         multiSelection: true
     },
+    step10: {
+        stepNumber: 10,
+        title: 'Welche Option wird zusätzlich zum Fahrgestell benötigt?',
+        subtitle: 'Mehrfachauswahl möglich.',
+        design: MachineType,
+        data: [
+            {name: 'Mehrfachauswahl möglich.', image:''},
+            {name: 'Kunststoffkotflügel', image:''},
+            {name: '60 km/h Zulassung', image:''},
+            {name: 'Zugmaul', image:''},
+            {name: '40 km/h Zulassung', image:''},
+            {name: 'Keine', image:''},
+        ],
+        multiSelection: true
+    },
+    step11: {
+        stepNumber: 11,
+        title: 'Was möchten Sie vorwiegend transportieren?',
+        subtitle: 'Mehrfachauswahl möglich.',
+        design: MachineType,
+        data: [
+            {name: 'Erde', image:''},
+            {name: 'Mais', image:''},
+            {name: 'Getreide', image:''},
+            {name: 'Kartoffeln', image:''},
+            {name: 'Sonstiges', image:''}
+        ],
+        multiSelection: true
+    },
+    step12: {
+        stepNumber: 12,
+        title: 'Welche Bereifung wünschen Sie?',
+        subtitle: 'Bitte treffen Sie eine Auswahl.',
+        design: MachineType,
+        data: [
+            {name: 'Ackerbereifung', image:''},
+            {name: 'Grobe Ackerbereifung', image:''},
+            {name: 'Straßenbereifung', image:''},
+            {name: 'Große Straßenbereifung', image:''},
+            {name: 'Standard', image:''},
+            {name: 'Andere', image:''}
+        ],
+        multiSelection: false
+    },
+    step13: {
+        stepNumber: 13,
+        title: 'Angebot Nr. 218101111',
+        subtitle: 'HKD 402',
+        design: OfferView,
+        data: [
+            {
+                type: 'A0624', 
+                product: 'Bordwände mit Kunststoff-Leichtbauplatten 20mm stark, Bordwandhöhe 1700mm, (Farbe weiß oder in Verbindung mit L 1204;', 
+                price: '2.250,00 €'
+            },
+            {
+                type: 'A4024', 
+                product: 'hydraulische Bordwandfernentriegelung für Rückwand', 
+                price: '333,00 €'
+            },
+            {
+                type: 'A6004', 
+                product: 'Aufsteckdreiecke vorne und hinten (300mm) + 2x Mitteldreieck mit abklappbarem Spriegelbaum', 
+                price: '222,00 €'
+            }
+        ],
+        multiSelection: false,
+        noBasket: true
+    },
+    step14: {
+        stepNumber: 14,
+        title: 'Kontaktdaten',
+        subtitle: 'Bitte geben Sie Ihre Kontaktdaten an.',
+        design: UserForm,
+        multiSelection: false,
+        noBasket: true
+    },
+    step15: {
+        stepNumber: 15,
+        title: 'Händlerauswahl',
+        subtitle: 'Bitte wählen Sie einen Händler aus.',
+        design: DealerView,
+        data: [
+            {
+                dealer: 'Agrartechnik Altenberg Berndt Bäumer',
+                phone: '+49 (0) 169 363 37',
+                email: 'bbäumer@agrartechnik-altenberg.com',
+                address: 'Kümperstiege 2 48341 Altenberge'
+
+            },
+            {
+                dealer: 'Agrartechnik Altenberg Berndt Bäumer',
+                phone: '+49 (0) 169 363 37',
+                email: 'bbäumer@agrartechnik-altenberg.com',
+                address: 'Kümperstiege 2 48341 Altenberge'
+
+            },
+            {
+                dealer: 'Agrartechnik Altenberg Berndt Bäumer',
+                phone: '+49 (0) 169 363 37',
+                email: 'bbäumer@agrartechnik-altenberg.com',
+                address: 'Kümperstiege 2 48341 Altenberge'
+
+            },
+            {
+                dealer: 'Agrartechnik Altenberg Berndt Bäumer',
+                phone: '+49 (0) 169 363 37',
+                email: 'bbäumer@agrartechnik-altenberg.com',
+                address: 'Kümperstiege 2 48341 Altenberge'
+
+            }
+        ],
+        multiSelection: false,
+        noBasket: true
+    }
     
 }
 
