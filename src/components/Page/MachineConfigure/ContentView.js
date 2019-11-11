@@ -9,7 +9,7 @@ export const MachineType = (props) => {
     const {items, onClick} = props;
     return (
         <Row className="justify-content-md-center mt-3">
-            <Col xs={6}>
+            <Col xs={7}>
                 <Row className="justify-content-md-center Machine-container">
                     {items.map((item, index) => {
                         return (

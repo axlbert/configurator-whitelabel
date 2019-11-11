@@ -17,12 +17,12 @@ function SelectedItem({items}) {
 
 class Sidebar extends Component {
     render ()  {
-        const { items } = this.props;
+        const { items, onClick } = this.props;
         return (
             <div className="Sidebar-container">
                 <div className="Sidebar-header">
                     <p className="primary-color lato-bold">Auswahl</p>
-                    <i className="material-icons">keyboard_arrow_left</i>
+                    <i className="material-icons back-icon" onClick={onClick}>keyboard_arrow_left</i>
                 </div>
                 <SelectedItem items={items}/>
             </div>

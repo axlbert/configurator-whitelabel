@@ -1,2 +1,3 @@
 export const ADD_ITEM_BASKET = "ADD_ITEM_BASKET";
 export const CLEAR_BASKET = 'CLEAR_BASKET';
+export const REMOVE_ITEM_BASKET = 'REMOVE_ITEM_BASKET';

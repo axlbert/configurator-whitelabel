@@ -1,5 +1,4 @@
 .Item-container {
-    width: 200px;
     cursor: pointer;
 }
 
@@ -17,8 +16,6 @@
 
 .Item-block {
     border: 2px solid #DCDBDB;
-    width: 170px;
-    height: 140px;
 }
 
 .Item-image {

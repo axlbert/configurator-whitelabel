@@ -150,11 +150,11 @@ const content = {
         subtitle: 'Bitte treffen Sie eine Auswahl.',
         design: MachineType,
         data: [
-            {name: 'Horizontal geteilte Bordwand', image:''},
-            {name: 'Horizontal ungeteilte Bordwand', image:''},
-            {name: 'Durchgehend geteilte Bordwand', image:''},
-            {name: 'Durchgehend ungeteilte Bordwand', image:''},
-            {name: 'HorizPortalfunktion', image:''},
+            {name: 'Horizontal geteilte Bordwand', image: images.ships.hdSideWall},
+            {name: 'Horizontal ungeteilte Bordwand', image: images.ships.hudSideWall},
+            {name: 'Durchgehend geteilte Bordwand', image: images.ships.cdSideWall},
+            {name: 'Durchgehend ungeteilte Bordwand', image: images.ships.cudSideWall},
+            {name: 'HorizPortalfunktion', image: images.ships.portal},
         ],
         multiSelection: false
     },
@@ -164,9 +164,9 @@ const content = {
         subtitle: 'Bitte treffen Sie eine Auswahl.',
         design: MachineType,
         data: [
-            {name: 'Mehrschichtholz', image:''},
-            {name: 'Kunststoff', image:''},
-            {name: 'Stahl', image:''}
+            {name: 'Mehrschichtholz', image: images.panels.plywood},
+            {name: 'Kunststoff', image: images.panels.plastic},
+            {name: 'Stahl', image: images.panels.stole}
         ],
         multiSelection: false
     },
@@ -176,10 +176,10 @@ const content = {
         subtitle: 'Mehrfachauswahl möglich.',
         design: MachineType,
         data: [
-            {name: 'Abnehmbare Kippbrückenverlängerung', image:'', selected: false},
-            {name: 'Fernentriegelung', image:'', selected: false},
-            {name: 'Rollplane', image:'', selected: false},
-            {name: 'Keine', image:'', selected: false},
+            {name: 'Abnehmbare Kippbrückenverlängerung', image: images.structure.tipper, selected: false},
+            {name: 'Fernentriegelung', image: images.structure.remoteUnlocking, selected: false},
+            {name: 'Rollplane', image: images.structure.rollPlane, selected: false},
+            {name: 'Keine', image:images.structure.none, selected: false},
         ],
         multiSelection: true
     },
@@ -189,12 +189,12 @@ const content = {
         subtitle: 'Mehrfachauswahl möglich.',
         design: MachineType,
         data: [
-            {name: 'Mehrfachauswahl möglich.', image:''},
-            {name: 'Kunststoffkotflügel', image:''},
-            {name: '60 km/h Zulassung', image:''},
-            {name: 'Zugmaul', image:''},
-            {name: '40 km/h Zulassung', image:''},
-            {name: 'Keine', image:''},
+            {name: 'Unterfahrschutz', image: images.chassis.underrideProtection},
+            {name: 'Kunststoffkotflügel', image: images.chassis.plasticFenders},
+            {name: '60 km/h Zulassung', image: images.chassis.approval60},
+            {name: 'Zugmaul', image: images.chassis.hitch},
+            {name: '40 km/h Zulassung', image: images.chassis.approval40},
+            {name: 'Keine', image: images.chassis.none},
         ],
         multiSelection: true
     },
@@ -204,11 +204,11 @@ const content = {
         subtitle: 'Mehrfachauswahl möglich.',
         design: MachineType,
         data: [
-            {name: 'Erde', image:''},
-            {name: 'Mais', image:''},
-            {name: 'Getreide', image:''},
-            {name: 'Kartoffeln', image:''},
-            {name: 'Sonstiges', image:''}
+            {name: 'Erde', image: images.transport.earth},
+            {name: 'Mais', image: images.transport.more},
+            {name: 'Getreide', image: images.transport.grain},
+            {name: 'Kartoffeln', image: images.transport.potatoes},
+            {name: 'Sonstiges', image: images.transport.other}
         ],
         multiSelection: true
     },
@@ -218,12 +218,12 @@ const content = {
         subtitle: 'Bitte treffen Sie eine Auswahl.',
         design: MachineType,
         data: [
-            {name: 'Ackerbereifung', image:''},
-            {name: 'Grobe Ackerbereifung', image:''},
-            {name: 'Straßenbereifung', image:''},
-            {name: 'Große Straßenbereifung', image:''},
-            {name: 'Standard', image:''},
-            {name: 'Andere', image:''}
+            {name: 'Ackerbereifung', image: images.tires.agriculturalTires},
+            {name: 'Grobe Ackerbereifung', image: images.tires.roughFieldRipening},
+            {name: 'Straßenbereifung', image: images.tires.roaTires},
+            {name: 'Große Straßenbereifung', image: images.tires.bigRoadTires},
+            {name: 'Standard', image: images.tires.standardTires},
+            {name: 'Andere', image: ''}
         ],
         multiSelection: false
     },

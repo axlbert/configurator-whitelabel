@@ -7,7 +7,11 @@ import Sidebar from '../../Sidebar/Sidebar';
 import ConfigureFlow from '../../ConfigureFlow/ConfigureFlow';
 import Button from '../../Button/Button';
 import content from '../../../res/jsonRes';
-import { addItemToBasket, clearBasket } from '../../../redux_setup/actions';
+import { 
+    addItemToBasket, 
+    removeItemFromBasket,
+    clearBasket 
+} from '../../../redux_setup/actions';
 
 
 class MachineConfigure extends Component {
@@ -24,10 +28,18 @@ class MachineConfigure extends Component {
             noBasket: false,
         }
         this.onItemClick = this.onItemClick.bind(this);
+        this.backToPrevious = this.backToPrevious.bind(this);
     }
 
     componentWillUnmount() {
         this.props.dispatch(clearBasket());
+    }
+
+    backToPrevious() {
+        if (this.state.stepNumber == 1) return; 
+        let stepNumber = this.state.stepNumber - 1;
+        this.changeState(stepNumber);
+        this.props.dispatch(removeItemFromBasket(1));
     }
 
     onItemClick(item) {
@@ -53,16 +65,20 @@ class MachineConfigure extends Component {
             this.props.dispatch(addItemToBasket(item));
         }
         if (!multiSelection || item.nextStep) {
-            this.setState({
-                title: content['step' + nextStep].title,
-                subtitle: content['step' + nextStep].subtitle,
-                data: content['step' + nextStep].data,
-                stepNumber: content['step' + nextStep].stepNumber,
-                design: content['step' + nextStep].design,
-                multiSelection: content['step' + nextStep].multiSelection,
-                noBasket: content['step' + nextStep].noBasket
-            })
+            this.changeState(nextStep);
         }
+    }
+
+    changeState(nextStep) {
+        this.setState({
+            title: content['step' + nextStep].title,
+            subtitle: content['step' + nextStep].subtitle,
+            data: content['step' + nextStep].data,
+            stepNumber: content['step' + nextStep].stepNumber,
+            design: content['step' + nextStep].design,
+            multiSelection: content['step' + nextStep].multiSelection,
+            noBasket: content['step' + nextStep].noBasket
+        })
     }
 
     renderFurtherButton() {
@@ -76,7 +92,7 @@ class MachineConfigure extends Component {
         return (
             <div>
                 <div className="d-flex Container">
-                    {!noBasket ? <Sidebar /> : null}
+                    {!noBasket ? <Sidebar onClick={this.backToPrevious}/> : null}
                     <Container className="Main-container justify-content-center">
                         <Row className="justify-content-md-center title mt-1 mb-1">
                             {title}
@@ -99,7 +115,14 @@ class MachineConfigure extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {action: bindActionCreators({addItemToBasket, clearBasket}, dispatch)}
+    return {action: bindActionCreators (
+        {
+            addItemToBasket, 
+            removeItemFromBasket,
+            clearBasket
+        }, 
+        dispatch)
+    }
 }
 
 export default connect(mapDispatchToProps)(MachineConfigure);
