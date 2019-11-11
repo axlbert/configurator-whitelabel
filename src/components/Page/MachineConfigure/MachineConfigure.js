@@ -10,6 +10,7 @@ import content from '../../../res/jsonRes';
 import { 
     addItemToBasket, 
     removeItemFromBasket,
+    removeItemByObject,
     clearBasket 
 } from '../../../redux_setup/actions';
 
@@ -37,7 +38,10 @@ class MachineConfigure extends Component {
 
     backToPrevious() {
         if (this.state.stepNumber == 1) return; 
-        let stepNumber = this.state.stepNumber - 1;
+        let stepNumber = (
+            this.state.stepNumber === 6 ||
+            this.state.stepNumber === 5
+          )  ? 3 : this.state.stepNumber - 1;
         this.changeState(stepNumber);
         this.props.dispatch(removeItemFromBasket(1));
     }
@@ -61,9 +65,16 @@ class MachineConfigure extends Component {
         this.setState({itemSelected: multiSelection ? true : false});
         const nextStep = item.nextStep ? item.nextStep : stepNumber + 1;
 
-        if (!item.nextStep && !noBasket) {
+        if (!item.nextStep && !noBasket && item.selected && item.name !== 'Keine') {
+            console.log('===============', multiSelection, item.selected)
+            if (!multiSelection) {
+                item.selected = false;
+            } 
             this.props.dispatch(addItemToBasket(item));
+        } else {
+            this.props.dispatch(removeItemByObject(item));
         }
+
         if (!multiSelection || item.nextStep) {
             this.changeState(nextStep);
         }
@@ -77,7 +88,8 @@ class MachineConfigure extends Component {
             stepNumber: content['step' + nextStep].stepNumber,
             design: content['step' + nextStep].design,
             multiSelection: content['step' + nextStep].multiSelection,
-            noBasket: content['step' + nextStep].noBasket
+            noBasket: content['step' + nextStep].noBasket,
+            itemSelected: false
         })
     }
 
@@ -92,7 +104,7 @@ class MachineConfigure extends Component {
         return (
             <div>
                 <div className="d-flex Container">
-                    {!noBasket ? <Sidebar onClick={this.backToPrevious}/> : null}
+                    {!noBasket ? <Sidebar onClick={this.backToPrevious} stepNumber={stepNumber}/> : null}
                     <Container className="Main-container justify-content-center">
                         <Row className="justify-content-md-center title mt-1 mb-1">
                             {title}
@@ -119,6 +131,7 @@ function mapDispatchToProps(dispatch) {
         {
             addItemToBasket, 
             removeItemFromBasket,
+            removeItemByObject,
             clearBasket
         }, 
         dispatch)

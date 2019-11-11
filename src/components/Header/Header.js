@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import './Header.css';
 import images from '../../res/images';
 
-function Header() {
-    return (
-        <div className="Header">
-            <img src={images.categories.hekto_logo} className="Header-logo" alt="logo" />
-        </div>
-    );
+class Header extends Component {
+    render () {
+        return (
+            <div className="Header" onClick={() => this.props.history.push('/home')}>
+                <img src={images.categories.hekto_logo} className="Header-logo" alt="logo" />
+            </div>
+        );
+    }
+    
 }
 
-export default Header;
+export default withRouter(Header);

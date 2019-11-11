@@ -17,12 +17,13 @@ function SelectedItem({items}) {
 
 class Sidebar extends Component {
     render ()  {
-        const { items, onClick } = this.props;
+        const { onClick, items, id, stepNumber } = this.props;
+        
         return (
-            <div className="Sidebar-container">
+            <div className="Sidebar-container" key={id}>
                 <div className="Sidebar-header">
                     <p className="primary-color lato-bold">Auswahl</p>
-                    <i className="material-icons back-icon" onClick={onClick}>keyboard_arrow_left</i>
+                    <i className={`material-icons back-icon ${stepNumber === 1 ? 'gray-color' : ''}`} onClick={onClick}>keyboard_arrow_left</i>
                 </div>
                 <SelectedItem items={items}/>
             </div>
@@ -31,7 +32,8 @@ class Sidebar extends Component {
 }
 
 const mapStateToProps = state => {
-    return state
+    const id = state.items.length;
+    return {items: state.items, id: id}
 };
 
 export default connect(mapStateToProps)(Sidebar);

@@ -120,6 +120,7 @@ const content = {
             {name: 'Ja', nextStep: 5},
             {name: 'Nein', nextStep: 6}
         ],
+        specialRequirement: true,
         multiSelection: false
     },
     step5: {

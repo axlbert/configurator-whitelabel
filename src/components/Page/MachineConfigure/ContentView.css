@@ -2,6 +2,25 @@
     font-size: 14px;
 }
 
+.Option-item {
+    height: 45px;
+    background: #E6E6E6;
+    box-shadow: 0px 1px 3px #00000069;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.Option-item:hover {
+    box-shadow: 0px 1px 3px #FFB232;
+}
+
+.text-field {
+    width: 100%;
+}
+
 .list-price {
     border-bottom: 1px solid #DCDBDB;
 }
@@ -33,6 +52,11 @@ label {
 .dealer-box {
     background: #E6E6E6;
     box-shadow: 0px 1px 3px #00000069;
+    cursor: pointer;
+}
+
+.dealer-box:hover {
+    box-shadow: 3px 3px 6px #FFB232;
 }
 
 .Item-box {
@@ -40,6 +64,11 @@ label {
     height: 200px;
     background: #E4E4E4;
     border-radius: 15px;
+    cursor: pointer;
+}
+
+.Item-box:hover {
+    border: 2px solid #FFB232;
 }
 
 .final-image {

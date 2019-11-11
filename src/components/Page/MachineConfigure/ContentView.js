@@ -32,8 +32,11 @@ export const OptionType = (props) => {
                 <Row className="justify-content-center">
                     {items.map((item, index) => {
                         return (
-                            <Col className="Configured-item d-flex align-items-center" md={7} key={index} 
-                                onClick={() => {onClick(item)}}
+                            <Col className="Option-item d-flex align-items-center" md={7} key={index} 
+                                onClick={() => {
+                                    item.selected = !item.selected;
+                                    onClick(item)
+                                }}
                             >
                                 <i className="material-icons gray-color mr-2">check</i>
                                 <p>{item.name}</p>
@@ -52,7 +55,7 @@ export const DescribeView = (props) => {
         <Row className="justify-content-md-center mt-4">
             <Col xs={6}>
                 <Row className="justify-content-center">
-                    {items}
+                    <textarea className="text-field" cols="40" rows="5" placeholder={items}></textarea>
                 </Row>
                 <Row className="justify-content-end pt-5 mt-5">
                     <Button step={5} onClick={onClick}/>
@@ -90,7 +93,7 @@ export const OfferView = (props) => {
                     <Col xs={8}>Gesamtsumme EUR</Col>
                     <Col className="price">52.888,36 €</Col>
                 </Row>
-                <Row className="justify-content-end">
+                <Row className="justify-content-end mt-3">
                     <Button onClick={onClick} />
                 </Row>
             </Col>
@@ -109,8 +112,8 @@ export const UserForm = (props) => {
                     <input type="text" className="input" placeholder="Postleitzahl"  />
                     <input type="text" className="input" placeholder="Telefonnummer"></input>
                     <input type="text" className="input" placeholder="E.Mail"></input>
-                    <div className="button-wrap">
-                        <Button className="justify-cotent-center" onClick={onClick} />
+                    <div className="button-wrap mt-3">
+                        <Button className="justify-cotent-center mt-3" onClick={onClick} />
                     </div>
                 </form>
             </Col>
@@ -167,7 +170,6 @@ export class DealerView extends Component {
 }
 
 export const FinalView = (props) => {
-    console.log('=============', props)
     const {items, onClick} = props;
     return (
         <Row className="justify-content-md-center mt-5">
