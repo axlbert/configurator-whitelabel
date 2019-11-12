@@ -18,12 +18,12 @@ function SelectedItem({items}) {
 class Sidebar extends Component {
     render ()  {
         const { onClick, items, id, stepNumber } = this.props;
-        
+        const lastItem = items[items.length - 2];
         return (
             <div className="Sidebar-container" key={id}>
                 <div className="Sidebar-header">
                     <p className="primary-color lato-bold">Auswahl</p>
-                    <i className={`material-icons back-icon ${stepNumber === 1 ? 'gray-color' : ''}`} onClick={onClick}>keyboard_arrow_left</i>
+                    <i className={`material-icons back-icon ${stepNumber === 1 ? 'gray-color' : ''}`} onClick={() => onClick(lastItem)}>keyboard_arrow_left</i>
                 </div>
                 <SelectedItem items={items}/>
             </div>

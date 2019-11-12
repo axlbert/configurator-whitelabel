@@ -36,13 +36,13 @@ class MachineConfigure extends Component {
         this.props.dispatch(clearBasket());
     }
 
-    backToPrevious() {
+    backToPrevious(lastItem) {
         if (this.state.stepNumber == 1) return; 
         let stepNumber = (
             this.state.stepNumber === 6 ||
             this.state.stepNumber === 5
           )  ? 3 : this.state.stepNumber - 1;
-        this.changeState(stepNumber);
+        this.changeState(stepNumber, lastItem);
         this.props.dispatch(removeItemFromBasket(1));
     }
 
@@ -66,7 +66,7 @@ class MachineConfigure extends Component {
         const nextStep = item.nextStep ? item.nextStep : stepNumber + 1;
 
         if (!item.nextStep && !noBasket && item.selected && item.name !== 'Keine') {
-            console.log('===============', multiSelection, item.selected)
+            
             if (!multiSelection) {
                 item.selected = false;
             } 
@@ -76,15 +76,16 @@ class MachineConfigure extends Component {
         }
 
         if (!multiSelection || item.nextStep) {
-            this.changeState(nextStep);
+            this.changeState(nextStep, item);
         }
     }
 
-    changeState(nextStep) {
+    changeState(nextStep, item) {
+
         this.setState({
             title: content['step' + nextStep].title,
             subtitle: content['step' + nextStep].subtitle,
-            data: content['step' + nextStep].data,
+            data: !Array.isArray(content['step' + nextStep].data) ? content['step' + nextStep].data[item.name] : content['step' + nextStep].data,
             stepNumber: content['step' + nextStep].stepNumber,
             design: content['step' + nextStep].design,
             multiSelection: content['step' + nextStep].multiSelection,

@@ -77,24 +77,41 @@ const content = {
         title: 'Welche Art von Fahrwerk benötigen Sie?',
         subtitle: 'Bitte treffen Sie eine Auswahl.',
         design: MachineType,
-        data: [
-            {
-                name: strings.suspensions.singleAxle, 
-                image: images.suspensions.singleAxle
-            },
-            {
-                name: strings.suspensions.twoAxles, 
-                image: images.suspensions.twoAxles
-            },
-            {
-                name: strings.suspensions.threeAxles, 
-                image: images.suspensions.threeAxles
-            },
-            {
-                name: strings.suspensions.tandem,
-                image: images.suspensions.tandem
-            }
-        ],
+        data: {
+            Dreiseitenkipper: [
+                {
+                    name: strings.suspensions.singleAxle, 
+                    image: images.suspensions.singleAxle
+                },
+                {
+                    name: strings.suspensions.twoAxles, 
+                    image: images.suspensions.twoAxles
+                },
+                {
+                    name: strings.suspensions.threeAxles, 
+                    image: images.suspensions.threeAxles
+                },
+                {
+                    name: strings.suspensions.tandem,
+                    image: images.suspensions.tandem
+                }
+            ],
+            Muldenkipper: [
+
+            ],
+            Hakenlift: [
+
+            ],
+            Abschiebwagen: [
+
+            ],
+            Plattformanhänger: [
+
+            ],
+            Vorderwagen: [
+
+            ]
+        },
         multiSelection: false
     },
     step3: {
@@ -102,13 +119,25 @@ const content = {
         title: 'Welches zulässiges Gesamtgewicht wird benötigt?',
         subtitle: 'Bitte treffen Sie eine Auswahl.',
         design: OptionType,
-        data: [
-            {name: '6 Tonnen'},
-            {name: '8 Tonnen'},
-            {name: '10 Tonnen'},
-            {name: '14 Tonnen'},
-            {name: '18 Tonnen'}
-        ],
+        data: {
+            Einachser: [
+                {name: '6 Tonnen'},
+                {name: '8 Tonnen'},
+                {name: '10 Tonnen'},
+                {name: '14 Tonnen'},
+                {name: '18 Tonnen'}
+            ],
+            Zweiachser: [
+
+            ],
+            Dreiachser: [
+
+            ],
+            Tandem: [
+
+            ]
+            
+        },
         multiSelection: false
     },
     step4: {
@@ -223,8 +252,7 @@ const content = {
             {name: 'Grobe Ackerbereifung', image: images.tires.roughFieldRipening},
             {name: 'Straßenbereifung', image: images.tires.roaTires},
             {name: 'Große Straßenbereifung', image: images.tires.bigRoadTires},
-            {name: 'Standard', image: images.tires.standardTires},
-            {name: 'Andere', image: ''}
+            {name: 'Standard', image: images.tires.standardTires}
         ],
         multiSelection: false
     },
