@@ -286,6 +286,7 @@ const content = {
         title: 'Kontaktdaten',
         subtitle: 'Bitte geben Sie Ihre Kontaktdaten an.',
         design: UserForm,
+        data: [],
         multiSelection: false,
         noBasket: true
     },

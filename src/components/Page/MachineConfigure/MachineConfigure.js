@@ -43,7 +43,9 @@ class MachineConfigure extends Component {
             this.state.stepNumber === 5
           )  ? 3 : this.state.stepNumber - 1;
         this.changeState(stepNumber, lastItem);
-        this.props.dispatch(removeItemFromBasket(1));
+        if (!this.state.multiSelection) {
+            this.props.dispatch(removeItemFromBasket(1));
+        }
     }
 
     onItemClick(item) {
@@ -121,7 +123,7 @@ class MachineConfigure extends Component {
                         </Row>
                     </Container>
                 </div>
-                <ConfigureFlow />
+                <ConfigureFlow step={stepNumber} />
             </div>
         );
     }
